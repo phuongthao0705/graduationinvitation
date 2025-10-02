@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thư Mời Lễ Tốt Nghiệp - Nguyễn Văn An</title>
+    <title>Thư Mời Lễ Tốt Nghiệp - Nguyễn Thị Phương Thảo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +19,7 @@
         .gradient-gold {
             background: linear-gradient(145deg, #fceabb, #f8b500, #c38300);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .fade-in {
@@ -54,14 +55,14 @@
         <header class="fade-in">
             <h2 class="font-handwriting text-5xl md:text-7xl gradient-gold">Trân trọng kính mời</h2>
             <p class="mt-4 text-lg text-gray-300">Đến tham dự buổi lễ tốt nghiệp của</p>
-            <h1 class="mt-4 text-4xl md:text-6xl font-bold tracking-wider text-amber-300">Nguyễn Văn An</h1>
+            <h1 class="mt-4 text-4xl md:text-6xl font-bold tracking-wider text-amber-300">Nguyễn Thị Phương Thảo</h1>
             <div class="w-24 h-1 bg-amber-400 mx-auto mt-6 rounded-full"></div>
         </header>
 
         <!-- Main Invitation -->
         <main class="mt-16">
             <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-2xl max-w-3xl mx-auto p-8 md:p-12 border border-gray-700 fade-in">
-                <img src="https://placehold.co/150x150/f8b500/1a202c?text=A" alt="Ảnh chân dung Nguyễn Văn An" class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto -mt-24 md:-mt-28 border-4 border-gray-900 shadow-lg">
+                <img src="avt.jpg" alt="Ảnh chân dung Nguyễn Thị Phương Thảo" class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto -mt-24 md:-mt-28 border-4 border-gray-900 shadow-lg">
                 <p class="mt-8 text-gray-300 italic text-base md:text-lg">
                     "Bốn năm hành trình gieo mầm tri thức, nay đã đến ngày hái quả ngọt. Sự hiện diện của quý vị là niềm vinh hạnh và là món quà ý nghĩa nhất đối với tôi trong khoảnh khắc đặc biệt này."
                 </p>
@@ -77,7 +78,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-400 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                         <div>
                             <h3 class="font-bold text-xl text-amber-300">Thời gian</h3>
-                            <p class="text-gray-300">9:00 Sáng, Thứ Bảy, ngày 15 tháng 11 năm 2025</p>
+                            <p class="text-gray-300">14:00 Chiều, Thứ Bảy, ngày 04 tháng 10 năm 2025</p>
                         </div>
                     </div>
                     <div class="flex items-start space-x-4">
@@ -103,20 +104,11 @@
             </div>
         </section>
 
-        <!-- RSVP Section -->
-        <footer class="mt-16 fade-in">
-            <p class="text-gray-300">Vui lòng xác nhận sự tham dự trước ngày 10/11/2025</p>
-            <a href="mailto:example@email.com?subject=Xác nhận tham dự Lễ Tốt Nghiệp&body=Tôi, [Tên bạn], xác nhận sẽ tham dự Lễ Tốt Nghiệp của Nguyễn Văn An." 
-               class="inline-block mt-6 bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">
-                Xác nhận tham dự
-            </a>
-        </footer>
-
     </div>
 
     <script>
         // --- Countdown Timer Logic ---
-        const countdownDate = new Date("Nov 15, 2025 09:00:00").getTime();
+        const countdownDate = new Date("Oct 05, 2025 14:00:00").getTime();
 
         const countdownFunction = setInterval(function() {
             const now = new Date().getTime();
