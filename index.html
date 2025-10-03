@@ -206,37 +206,44 @@
             submitButton.textContent = 'Đang gửi...';
 
             try {
-                // Fetch POST request
-                const response = await fetch(googleSheetApiUrl, {
+                await fetch(googleSheetApiUrl, {
                     method: 'POST',
                     mode: 'no-cors', // Cần thiết cho Apps Script
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ name, message })
                 });
                 
-                // Vì request là no-cors, chúng ta không thể đọc response.
-                // Chúng ta sẽ giả định là thành công và cập nhật giao diện.
+                // Vì request là no-cors, chúng ta sẽ lạc quan cập nhật giao diện ngay.
+                // Thêm lời chúc mới vào đầu danh sách để người dùng thấy ngay.
+                const wishCard = document.createElement('div');
+                wishCard.className = 'bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 text-left shadow-lg';
+                wishCard.innerHTML = `
+                    <p class="font-bold text-amber-300 text-lg">${name}</p>
+                    <p class="text-gray-300 mt-2 italic">"${message}"</p>
+                `;
                 
-                // Thêm lời chúc mới vào đầu danh sách một cách giả lập để người dùng thấy ngay
-                const tempWish = { name, message };
-                const currentCards = Array.from(wishesContainer.children);
-                displayWishes([tempWish, ...currentCards.map(card => ({
-                    name: card.querySelector('.font-bold').textContent,
-                    message: card.querySelector('.italic').textContent.slice(1, -1)
-                }))]);
+                // Xóa thông báo "Chưa có lời chúc" hoặc "Đang tải" nếu có
+                if (wishesContainer.querySelector('p')) {
+                    wishesContainer.innerHTML = '';
+                }
+                wishesContainer.prepend(wishCard);
                 
                 wishForm.reset();
 
                 // Đặt một khoảng chờ ngắn trước khi tải lại toàn bộ danh sách từ sheet
-                // để đảm bảo sheet đã được cập nhật
+                // để đảm bảo sheet đã được cập nhật và đồng bộ.
                 setTimeout(loadWishes, 2000);
 
             } catch (error) {
-                console.error('Lỗi khi gửi lời chúc:', error);
-                alert('Đã có lỗi xảy ra, vui lòng thử lại.');
+                // Lỗi này thường chỉ xảy ra nếu có vấn đề về mạng.
+                // Chúng ta sẽ không hiển thị alert để tránh làm phiền người dùng.
+                console.error('Lỗi khi gửi lời chúc (có thể do mạng):', error);
             } finally {
-                submitButton.disabled = false;
-                submitButton.textContent = 'Gửi lời chúc';
+                // Kích hoạt lại nút bấm sau một khoảng thời gian.
+                setTimeout(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Gửi lời chúc';
+                }, 1000);
             }
         });
 
@@ -288,4 +295,3 @@
     </script>
 </body>
 </html>
-
